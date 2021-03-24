@@ -1,0 +1,27 @@
+.App {
+  background-color: #FDFEFE;
+  border-bottom: 1px solid #010101;
+  .navbar-brand {
+    color: #000;
+    margin-left: 50px;
+  }
+  .navbar-collapse {
+    padding-left: 50px;
+    &.show {
+      background-color: #FDFEFE;
+      height: 100px;
+    }
+    .navbar-nav {
+      text-align: center;
+      .nav-item {
+        .nav-link {
+          color: #7e7f7f;
+          padding: 5px 15px;
+          &:hover {
+            color: #010101;
+          }
+        }
+      }
+    }
+  }
+}
