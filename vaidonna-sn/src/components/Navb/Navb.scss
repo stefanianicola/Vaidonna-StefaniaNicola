@@ -1,0 +1,36 @@
+@import "../../sass/all";
+.navbar {
+    background-image: url(../../assets/img/bg.png);
+    border-bottom: 1px solid #010101;
+    background-position-y: center;
+    height: 200px;
+    .navbar-brand {
+        color: #000;
+        margin-left: 50px;
+    }
+    .navbar-collapse {
+        @include respond-to(medium) {
+            position: absolute;
+            right: 60px;
+        }
+        &.show {
+            //background-color: #fdfefe;
+            height: auto;
+        }
+        .navbar-nav {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+            
+            .nav-item {
+       
+                .dropdown-menu {
+                    //border: none;
+                    .dropdown-item {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}
