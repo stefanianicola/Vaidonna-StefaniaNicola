@@ -1,0 +1,20 @@
+.Count-container {
+    margin: 20px;
+    border: 1px solid #e7e7e7;
+    border-radius: 10%;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    .inc-container {
+        padding: 15px 0;
+        .btn {
+            width: 25px;
+            height: 26px;
+            padding: 0;
+            margin: 0 15px;
+        }
+        p {
+            margin: 0;
+        }
+    }
+}

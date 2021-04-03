@@ -4,7 +4,7 @@ import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // COMPONENTS
 import Logo from '../Logo/Logo'
-import CardWidget from '../CardWidget/CardWidget'
+import CardWidget from '../CartWidget/CartWidget'
 
 function Navb() {
   return (
