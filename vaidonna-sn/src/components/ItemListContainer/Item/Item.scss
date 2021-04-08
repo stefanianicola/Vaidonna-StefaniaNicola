@@ -1,0 +1,24 @@
+.card {
+    width: 200px;
+    height: auto;
+    margin: 5px;
+    .imgProduct {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+    }
+    .card-body{
+        padding: 10px;
+        .card-title{
+            margin-top: 10px;
+        }
+        .card-text{
+            &.descriptProduct{
+                font-size: 10px;
+            }
+            &.price {
+                font-weight: 800;
+            }
+        }
+    }
+}
