@@ -5,7 +5,7 @@ function ItemListContainer(props) {
 
     return (
         <div className="wrapper-list">
-            <h3 className="title-section">Destacados</h3>
+            <h3 className="title-section">{props.greetings}</h3>
             <ItemList />
         </div>
     );
