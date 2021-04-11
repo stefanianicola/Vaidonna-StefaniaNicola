@@ -35,3 +35,10 @@ export const Data = [
       "description": "ullam et saepe reiciendis sit amet autem assumenda provident rerum",
       "price": "ARS 790"
     }];
+
+
+    export const getItems = new Promise((res, rej)=>{
+      setTimeout(()=>{
+          res(Data);
+      }, 2000); 
+  })

@@ -1,0 +1,15 @@
+.detailProduct {
+    padding: 30px;
+    .card {
+        &.itemDetail{
+            padding-bottom: 50px;
+            margin: 20px 0;
+            h4 {
+                margin: 50px;
+            }
+            .card-img-top{
+                width: 100%;
+            }
+        }
+    }
+}

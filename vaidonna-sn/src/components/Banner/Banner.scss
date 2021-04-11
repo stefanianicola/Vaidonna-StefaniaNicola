@@ -1,0 +1,10 @@
+.banner {
+    .react-parallax {
+        margin-top: 80px;
+        padding-bottom: 50px;   
+        .react-parallax-bgimage{
+            position: fixed;
+            z-index: -100;
+        }   
+    }
+}

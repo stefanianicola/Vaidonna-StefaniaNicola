@@ -1,6 +1,6 @@
 import React from 'react';
 import './Item.scss';
-import {  Card } from 'react-bootstrap';
+import {  Col, Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemCount from '../ItemCount/ItemCount';
 
@@ -8,8 +8,8 @@ const Item = ({ data }) => {
    
     return (
 
-        <div>
-            <Card className="card">
+        <Col xs={12} md={4} lg={3} className="p-0">
+            <Card className="card listItem">
                 <div className="imgProduct" >
                     <Card.Img variant="top" src={data.image} />
                 </div>
@@ -25,7 +25,7 @@ const Item = ({ data }) => {
                 </Card.Body>
                 <ItemCount />
             </Card>
-        </div>
+        </Col>
 
     )
 }

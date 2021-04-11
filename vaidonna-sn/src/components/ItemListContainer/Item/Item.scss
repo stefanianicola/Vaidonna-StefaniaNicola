@@ -1,7 +1,9 @@
 .card {
-    width: 200px;
+    &.listItem{
+            //width: 200px;
     height: auto;
-    margin: 5px;
+    margin: 10px;
+    cursor: pointer;
     .imgProduct {
         width: 150px;
         height: 150px;
@@ -9,6 +11,7 @@
     }
     .card-body{
         padding: 10px;
+        border-bottom: 1px solid #e7e7e7;
         .card-title{
             margin-top: 10px;
         }
@@ -20,5 +23,10 @@
                 font-weight: 800;
             }
         }
+    }
+    &:hover{
+        transform: scale(1.1);
+    }
+
     }
 }
