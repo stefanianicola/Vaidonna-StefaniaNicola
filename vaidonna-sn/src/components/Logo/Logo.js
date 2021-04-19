@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function Logo(props) {
 
   return (
-    <Navbar.Brand href="#home" name="Vaidonna">
+    <Navbar.Brand href="/" name="Vaidonna">
       <div>
         <img
           src={props.url}

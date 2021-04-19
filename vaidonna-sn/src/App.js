@@ -1,44 +1,29 @@
-import {useState} from 'react';
 import './App.scss';
-import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 //COMPONENTS
 import Navb from './components/Navb/Navb';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import Banner from './components/Banner/Banner';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-
-
+import Footer from './components/Footer/Footer';
+//VIEWS
+import Home from './Views/Home/Home';
+import Productos from './Views/Products/Productos';
+import DetalleProducto from './Views/DetalleProductos/DetalleProducto';
 
 function App() {
-  const [flag, setFlag] = useState(true);
-
-  const handleDescription = ()=>{
-    setFlag(!flag);
-  }
 
   return (
-    <div className="App">
-       <Button variant="primary" onClick={handleDescription}>
-         {
-           flag 
-           ? "Mostrar descripciones"
-           : "Volver al inicio"
-         }
-       </Button>
-      <Navb />
-      {
-        flag ? (
-          (
-            <div>
-              <Banner />
-              <ItemListContainer greeting="Destacados" />
-            </div>
-          )
-        ) : <ItemDetailContainer />
-      }
-    </div>
+    <Router>
+      <div className="App">
+        <Navb />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/productos" exact component={Productos} />
+          <Route path="/productos/:id" exact component={DetalleProducto} />
+        </Switch>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

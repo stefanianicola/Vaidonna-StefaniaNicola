@@ -1,32 +1,33 @@
 .card {
-    &.listItem{
-            //width: 200px;
-    height: auto;
-    margin: 10px;
-    cursor: pointer;
-    .imgProduct {
-        width: 150px;
-        height: 150px;
-        margin: 0 auto;
-    }
-    .card-body{
-        padding: 10px;
-        border-bottom: 1px solid #e7e7e7;
-        .card-title{
-            margin-top: 10px;
+    &.listItem {
+        //width: 200px;
+        height: auto;
+        margin: 10px;
+        cursor: pointer;
+        text-decoration: none;
+        color: #000;
+        .imgProduct {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
         }
-        .card-text{
-            &.descriptProduct{
-                font-size: 10px;
+        .card-body {
+            padding: 10px;
+            border-bottom: 1px solid #e7e7e7;
+            .card-title {
+                margin-top: 10px;
             }
-            &.price {
-                font-weight: 800;
+            .card-text {
+                &.descriptProduct {
+                    font-size: 10px;
+                }
+                &.price {
+                    font-weight: 800;
+                }
             }
         }
-    }
-    &:hover{
-        transform: scale(1.1);
-    }
-
+        &:hover {
+            transform: scale(1.1);
+        }
     }
 }
