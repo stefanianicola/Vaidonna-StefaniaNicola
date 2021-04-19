@@ -38,7 +38,7 @@ export default class ItemCount extends Component {
                         -
                     </Button>
                 </Row>
-                <Button variant="outline-secondary">Agregar al carrito</Button>
+                <Button variant="outline-secondary">Terminar Compra</Button>
             </div>
         );
     }

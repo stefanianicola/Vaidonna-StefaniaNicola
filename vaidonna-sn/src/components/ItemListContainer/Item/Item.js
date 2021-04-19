@@ -1,11 +1,11 @@
 import React from 'react';
 import './Item.scss';
-import { Col, Card, Row } from 'react-bootstrap';
+import { Col, Card, Row, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 //COMPONENTES
-import ItemCount from '../ItemCount/ItemCount';
+import ItemCount from '../../ItemCount/ItemCount';
 //ROUTES
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Item = ({ data }) => {
 
@@ -14,8 +14,8 @@ const Item = ({ data }) => {
             {
                 data.map((d) => (
                     <Col xs={12} md={4} lg={3} className="p-0" key={d.id}>
-                        <Link to={`productos/${d.id}`}>
-                            <Card className="card listItem">
+                        <Link className="listItem" to={`productos/${d.id}`}>
+                            <Card className="card">
                                 <div className="imgProduct" >
                                     <Card.Img variant="top" src={d.webformatURL} />
                                 </div>
@@ -29,7 +29,7 @@ const Item = ({ data }) => {
                                         ARS {d.previewWidth}
                                     </Card.Text>
                                 </Card.Body>
-                                <ItemCount />
+                                <Button variant="outline-secondary">Agregar al carrito</Button>
                             </Card>
                         </Link>
                     </Col>

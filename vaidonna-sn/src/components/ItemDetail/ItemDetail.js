@@ -2,10 +2,12 @@ import React from 'react';
 import './ItemDetail.scss';
 import { Card, Col, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ItemCount from '../ItemCount/ItemCount';
 
 const ItemDetail = ({ data }) => {
     return (
         <div className="detailProduct">
+            <h2>Detalle de Producto</h2>
             <Card className="itemDetail">
                 <h4 className="text-center">{data.user}</h4>
                 <Row>
@@ -23,6 +25,7 @@ const ItemDetail = ({ data }) => {
                             <Card.Text>
                                 ARS {data.previewWidth}
                             </Card.Text>
+                            <ItemCount />
                         </Card.Body>
                     </Col>
                 </Row>
