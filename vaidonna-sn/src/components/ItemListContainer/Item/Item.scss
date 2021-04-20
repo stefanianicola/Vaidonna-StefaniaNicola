@@ -1,12 +1,12 @@
-.listItem {
-    //width: 200px;
-
-    text-decoration: none;
-    color: #000;
-    .card {
+.listItem  {
+    .card{
+        //width: 200px;
         height: auto;
         margin: 10px;
         cursor: pointer;
+        text-decoration: none;
+        color: #000;
+        padding-bottom: 5px;
         .imgProduct {
             width: 150px;
             height: 150px;
@@ -14,7 +14,7 @@
         }
         .card-body {
             padding: 10px;
-            border-bottom: 1px solid #e7e7e7;
+            //border-bottom: 1px solid #e7e7e7;
             .card-title {
                 margin-top: 10px;
             }
@@ -31,9 +31,8 @@
             transform: scale(1.1);
         }
     }
-
-    &:hover {
-        color: #000;
+    &:hover{
         text-decoration: none;
+        color: #000;
     }
 }

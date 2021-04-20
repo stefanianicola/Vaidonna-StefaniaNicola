@@ -18,9 +18,9 @@ function Navb() {
           <Nav className="mr-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <NavDropdown title="Productos" id="basic-nav-dropdown">
-              {/* <NavDropdown.Item href="/perros">Perros</NavDropdown.Item>
-              <NavDropdown.Item href="/gatos">Gatos</NavDropdown.Item> */}
-              <NavDropdown.Item href="/productos">Todos</NavDropdown.Item>
+              <NavDropdown.Item href="/category/dog">Perros</NavDropdown.Item>
+              <NavDropdown.Item href="/category/cat">Gatos</NavDropdown.Item>
+              <NavDropdown.Item href="/category/animals">Todos los Productos</NavDropdown.Item>
             </NavDropdown>
             <CartWidget />
           </Nav>

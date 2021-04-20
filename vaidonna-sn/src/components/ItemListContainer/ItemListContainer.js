@@ -1,8 +1,9 @@
 import ItemList from './ItemList/ItemList'
 import './ItemListContainer.scss';
 
-function ItemListContainer(props) {
 
+function ItemListContainer(props) {
+    
     return (
         
         <div className="wrapper-list">
