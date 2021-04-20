@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useParams } from 'react-router';
 
 
-function ItemList({match}) {
+function ItemList() {
     const [products, setProducts] = useState([]);
     let {name} = useParams();
     if(name === undefined){
