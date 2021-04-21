@@ -1,9 +1,17 @@
-import React from 'react';
+import { React, useState } from 'react';
 import './ItemDetail.scss';
 import { Card, Col, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
+import ItemCount from '../../ItemCount/ItemCount';
 
 const ItemDetail = ({ data }) => {
+    const [cart, setCart] = useState(false);
+
+    const onAdd = (count) => {
+        console.log('hay', count);
+        setCart(true)
+    }
 
     return (
         <div className="detailProduct">
@@ -25,9 +33,18 @@ const ItemDetail = ({ data }) => {
                                 ARS {data.previewWidth}
                             </Card.Text>
                         </Card.Body>
+                        {
+                            cart ? <Link to="/cart" className="btn btn-success">
+                                            Terminar Compra
+                                    </Link>
+
+                                : <ItemCount onAdd={onAdd} />
+                        }
+
                     </Col>
                 </Row>
             </Card>
+
         </div>
     )
 }

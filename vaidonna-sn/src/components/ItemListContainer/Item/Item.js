@@ -32,7 +32,7 @@ const Item = ({ data }) => {
                                         ARS {d.previewWidth}
                                     </Card.Text>
                                 </Card.Body>
-                                <Button className="col-8 offset-2" variant="outline-secondary">Agregar al carrito</Button>
+                                <Button className="col-8 offset-2" variant="outline-secondary">Ver más</Button>
                             </Card>
                         </Link>
                     </Col>

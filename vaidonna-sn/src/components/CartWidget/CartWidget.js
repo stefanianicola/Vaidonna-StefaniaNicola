@@ -8,7 +8,7 @@ function CardWidget(props) {
 
     return (
         <div>
-            <Nav.Link href="#home">
+            <Nav.Link href="/cart">
                 <i className="fa fa-shopping-cart" aria-hidden="true"></i>
             </Nav.Link>
         </div>

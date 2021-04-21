@@ -1,45 +1,49 @@
 
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './ItemCount.scss';
 import { Button, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-export default class ItemCount extends Component {
-    constructor() {
-        super();
+const ItemCount = ({onAdd}) => {
+    const [count, setCount] = useState(0);
 
-        this.state = {
-            count: 0,
-        };
-    }
-
-    handleIncrement = () => {
-        this.setState({ count: this.state.count + 1 });
+    const handleIncrement = () => {
+        setCount(count + 1);
     };
 
-    handleDecrement = () => {
-        if(this.state.count > 0){
-            this.setState({ count: this.state.count - 1 });
+    const handleDecrement = () => {
+        if (count > 0) {
+            setCount(count - 1);
         } else {
             alert('No hay productos seleccionados');
-        }  
+        }
     };
 
-    render() {
-        return (
-            <div className="Count-container">
-                <Row className="justify-content-center inc-container">
-                    <Button variant="secondary" className="btn" onClick={this.handleIncrement}>
-                        +
-                    </Button>
-                    <p>{this.state.count}</p>
-                    <Button variant="secondary" className="btn" onClick={this.handleDecrement}>
-                        -
-                    </Button>
-                </Row>
-                <Button variant="outline-secondary">Terminar Compra</Button>
-            </div>
-        );
+    const handlerOnAdd = () => {
+       onAdd(count);
     }
+
+
+    return (
+        <div className="Count-container">
+            <Row className="justify-content-center inc-container">
+                <Button variant="secondary" className="btn" onClick={handleIncrement}>
+                    +
+                </Button>
+                <p>{count}</p>
+                <Button variant="secondary" className="btn" onClick={handleDecrement}>
+                    -
+                </Button>
+            </Row>
+            {
+                count <= 0 ? <Button disabled variant="outline-secondary" onClick={onAdd}>Agregar al Carrito</Button>
+                        : <Button variant="outline-secondary" onClick={handlerOnAdd}>Agregar al Carrito</Button>
+            }
+            
+        </div>
+    );
+
 }
+
+export default ItemCount;
