@@ -1,16 +1,22 @@
-import { React, useState } from 'react';
+import { React, useState, useContext } from 'react';
 import './ItemDetail.scss';
-import { Card, Col, Row } from 'react-bootstrap';
+import { Card, Col, Row, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import ItemCount from '../../ItemCount/ItemCount';
+import { CartContext } from '../../../context/CartContext';
 
 const ItemDetail = ({ data }) => {
+    const { addList } = useContext(CartContext);
     const [cart, setCart] = useState(false);
 
     const onAdd = (count) => {
-        console.log('hay', count);
-        setCart(true)
+        setCart(true);
+        addList(data.id,data.user,data.webformatURL, count);
+    }
+
+    const handleBack = ()=>{
+        setCart(false);
     }
 
     return (
@@ -34,9 +40,14 @@ const ItemDetail = ({ data }) => {
                             </Card.Text>
                         </Card.Body>
                         {
-                            cart ? <Link to="/cart" className="btn btn-success">
+                            cart ? <div>
+                                        <Link to="/cart" className="btn btn-success">
                                             Terminar Compra
-                                    </Link>
+                                        </Link>
+                                        <Button variant="link" onClick={handleBack}>Cancelar</Button>
+                                    </div>
+
+
 
                                 : <ItemCount onAdd={onAdd} />
                         }

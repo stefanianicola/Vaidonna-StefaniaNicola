@@ -10,28 +10,31 @@ import Banner from './components/Banner/Banner';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import Cart from './components/Cart/Cart';
+import  CartContextProvider  from './context/CartContext';
 
 function App() {
 
   return (
-    <Router>
-      <div className="App">
-        <Navb />
-        <Switch>
-          <Route path="/" exact>
-            <Banner />
-            <ItemListContainer greeting="Todos Los Productos" />
-          </Route>
-          <Route path="/category/:name" exact>
-            <ItemListContainer greeting="Todos Los Productos" />
-          </Route>
-          <Route path="/:name/:id" exact component={ItemDetailContainer} />
-          <Route path="/category/:name/:id" exact component={ItemDetailContainer} />
-          <Route path="/cart" exact component={Cart} />
-        </Switch>
-        <Footer />
-      </div>
-    </Router>
+    <CartContextProvider>
+      <Router>
+        <div className="App">
+          <Navb />
+          <Switch>
+            <Route path="/" exact>
+              <Banner />
+              <ItemListContainer greeting="Todos Los Productos" />
+            </Route>
+            <Route path="/category/:name" exact>
+              <ItemListContainer greeting="Todos Los Productos" />
+            </Route>
+            <Route path="/:name/:id" exact component={ItemDetailContainer} />
+            <Route path="/category/animals/:id" exact component={ItemDetailContainer} />
+            <Route path="/cart" exact component={Cart} />
+          </Switch>
+          <Footer />
+        </div>
+      </Router>
+    </CartContextProvider>
   );
 }
 
