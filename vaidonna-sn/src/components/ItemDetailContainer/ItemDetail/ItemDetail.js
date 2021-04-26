@@ -12,7 +12,7 @@ const ItemDetail = ({ data }) => {
 
     const onAdd = (count) => {
         setCart(true);
-        addList(data.id,data.user,data.webformatURL, count);
+        addList(data.id,data.user,data.webformatURL, count, data.previewWidth);
     }
 
     const handleBack = ()=>{

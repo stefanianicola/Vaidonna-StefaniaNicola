@@ -1,3 +1,19 @@
-.carro{
-    margin-top: 200px;
+.carro {
+    margin-top: 150px;
+    .listItem {
+        display: flex;
+        .wrap-item {
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+            width: 100%;
+            .item {
+                margin: 30px 10px;
+                width: 100%;
+                img {
+                    width: auto;
+                    height: 200px;
+                }
+            }
+        }
+    }
 }

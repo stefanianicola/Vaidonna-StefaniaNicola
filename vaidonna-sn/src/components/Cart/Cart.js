@@ -1,34 +1,35 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
-import ItemDetail from '../ItemDetailContainer/ItemDetail/ItemDetail';
-import { Card, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import './Cart.scss';
 
 export default function Cart() {
     const { list } = useContext(CartContext);
 
     return (
-        <div className="carro">
+        <div className="carro ">
             <h4>Compra Pendiente de confirmación</h4>
-            <Card>
-                <h4 className="text-center">{list.user}</h4>
-                <Row>
-                    <Col md={{ span: 3, offset: 1 }}>
-                        <Card.Img
-                            variant="top"
-                            src={list.webformatURL}
-                        />
-                    </Col>
-                    <Col md={{ span: 4, offset: 2 }}>
-                        <Card.Body>
-                            <Card.Text>
-                                Cantidad {list.count}
-                            </Card.Text>
-                        </Card.Body>
-                        
-                    </Col>
-                </Row>
-            </Card>
+            <div className="listItem ">
+                {
+                    list.map((l) => (
+                        <Row key={l.id} className="wrap-item m-0 p-0">
+                            <p> Nombre de Producto {l.user}</p>
+                            <div className="item d-flex">
+                                <Col xs={6}>
+                                    <img
+                                        src={l.webformatURL}
+                                        alt=""
+                                    />
+                                </Col>
+                                <Col xs={6}>
+                                    <p>Cantidad: {l.count}</p>
+                                    <p>Total ARS {l.previewWidth * l.count}</p>
+                                </Col>
+                            </div>
+                        </Row>
+                    ))
+                }
+            </div>
         </div>
     )
 }
