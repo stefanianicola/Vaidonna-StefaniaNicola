@@ -7,7 +7,7 @@ import ItemCount from '../../ItemCount/ItemCount';
 import { CartContext } from '../../../context/CartContext';
 
 const ItemDetail = ({ data }) => {
-    const { addList } = useContext(CartContext);
+    const { addList, totalCompra } = useContext(CartContext);
     const [cart, setCart] = useState(false);
 
     const onAdd = (count) => {
@@ -41,7 +41,7 @@ const ItemDetail = ({ data }) => {
                         </Card.Body>
                         {
                             cart ? <div>
-                                        <Link to="/cart" className="btn btn-success">
+                                        <Link to="/cart" className="btn btn-success" onClick={totalCompra}>
                                             Terminar Compra
                                         </Link>
                                         <Button variant="link" onClick={handleBack}>Cancelar</Button>

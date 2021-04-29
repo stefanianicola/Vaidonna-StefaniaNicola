@@ -1,12 +1,14 @@
 import '../../assets/img/logo192.png';
 import './Logo.scss';
+import {Link} from 'react-router-dom';
 import { Navbar } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Logo(props) {
 
   return (
-    <Navbar.Brand href="/" name="Vaidonna">
+    <Link to="/">
+    <Navbar.Brand name="Vaidonna">
       <div>
         <img
           src={props.url}
@@ -22,6 +24,7 @@ function Logo(props) {
         </h1>
       </div>
     </Navbar.Brand>
+    </Link>
   );
 }
 

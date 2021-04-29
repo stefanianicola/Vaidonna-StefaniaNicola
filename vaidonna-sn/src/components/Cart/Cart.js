@@ -1,35 +1,45 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Card, Button } from 'react-bootstrap';
 import './Cart.scss';
 
+
 export default function Cart() {
-    const { list } = useContext(CartContext);
+    const { list, clear, total } = useContext(CartContext);
 
     return (
         <div className="carro ">
             <h4>Compra Pendiente de confirmación</h4>
             <div className="listItem ">
-                {
-                    list.map((l) => (
-                        <Row key={l.id} className="wrap-item m-0 p-0">
-                            <p> Nombre de Producto {l.user}</p>
-                            <div className="item d-flex">
-                                <Col xs={6}>
-                                    <img
-                                        src={l.webformatURL}
-                                        alt=""
-                                    />
-                                </Col>
-                                <Col xs={6}>
-                                    <p>Cantidad: {l.count}</p>
-                                    <p>Total ARS {l.previewWidth * l.count}</p>
-                                </Col>
-                            </div>
-                        </Row>
-                    ))
-                }
+                <Row>
+                    {
+                        list.map((l) => (
+
+                            <Col xs={12} md={4} className="p-0" key={l.id}>
+                          
+                                    <Card className="card">
+                                        <div >
+                                            <Card.Img variant="top" src={l.webformatURL} />
+                                        </div>
+
+                                        <Card.Body>
+                                            <Card.Title>{l.user}</Card.Title>
+                                            <Card.Text className="price">
+                                            Total producto ARS {l.previewWidth * l.count}
+                                            </Card.Text>
+                                        </Card.Body>
+                                        
+                                    </Card>
+                               
+                            </Col>
+                        ))
+                    }
+                    
+                </Row>
+                
             </div>
+            <p>Total de tu compra {total}</p>
+            <Button variant="danger" onClick={clear}>Cancelar compra</Button>
         </div>
     )
 }
