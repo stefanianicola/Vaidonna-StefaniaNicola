@@ -4,33 +4,28 @@ import { Col, Card, Row, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NumberFormat from 'react-number-format';
 //ROUTES
-import {Link, useParams} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const Item = ({ data }) => {
-
-    let{name}=useParams();
-    if(name === undefined){
-        name = "animals"
-      }
     
     return (
         <Row>
             {
                 data.map((d) => (
                     <Col xs={12} md={4} lg={3} className="p-0" key={d.id}>
-                        <Link to={`${name}/${d.id}`} className="listItem">
+                        <Link to={`/${d.categoria}/${d.id}`} className="listItem">
                             <Card className="card card-item">
                                 <div className="imgProduct" >
-                                    <Card.Img variant="top" src={d.webformatURL} />
+                                    <Card.Img variant="top" src={d.img} />
                                 </div>
 
                                 <Card.Body>
-                                    <Card.Title>{d.user}</Card.Title>
+                                    <Card.Title>{d.nombre}</Card.Title>
                                     <Card.Text className="descriptProduct">
-                                        {d.tags}
+                                        {d.descripcion}
                                     </Card.Text>
                                     <Card.Text className="price">
-                                    <NumberFormat value={d.previewWidth.toFixed(2)}
+                                    <NumberFormat value={d.precio}
                                                 displayType={'text'}
                                                 thousandSeparator={true}
                                                 prefix={'$'} />

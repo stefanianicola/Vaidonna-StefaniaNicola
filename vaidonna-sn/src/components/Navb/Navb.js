@@ -20,7 +20,7 @@ function Navb() {
             <NavDropdown title="Productos" id="basic-nav-dropdown">
               <Link to="/category/dog">Perros</Link>
               <Link to="/category/cat">Gatos</Link>
-              <Link to="/category/animals">Todos los Productos</Link>
+              <Link to="/addItems">Agregar productos</Link>
             </NavDropdown>
             <CartWidget />
           </Nav>

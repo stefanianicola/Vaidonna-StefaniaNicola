@@ -13,7 +13,7 @@ const ItemDetail = ({ data }) => {
 
     const onAdd = (count) => {
         setCart(true);
-        addList(data.id, data.user, data.webformatURL, count, data.previewWidth);
+        addList(data.id, data.nombre, data.img, count, data.precio);
     }
 
     const handleBack = () => {
@@ -23,21 +23,21 @@ const ItemDetail = ({ data }) => {
     return (
         <div className="detailProduct">
             <Card className="itemDetail">
-                <h4 className="text-center">{data.user}</h4>
+                <h4 className="text-center">{data.nombre}</h4>
                 <Row>
                     <Col md={{ span: 3, offset: 1 }}>
                         <Card.Img
                             variant="top"
-                            src={data.webformatURL}
+                            src={data.img}
                         />
                     </Col>
                     <Col md={{ span: 4, offset: 2 }}>
                         <Card.Body>
                             <Card.Text>
-                                {data.tags}
+                                {data.descripcion}
                             </Card.Text>
                             <Card.Text>
-                                <NumberFormat value={data.previewWidth}
+                                <NumberFormat value={data.precio}
                                     displayType={'text'}
                                     thousandSeparator={true}
                                     prefix={'$'} />

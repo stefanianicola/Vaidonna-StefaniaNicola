@@ -6,6 +6,8 @@ const CartContextProvider = (props) => {
     const [total, setTotal] = useState(0);
     const [item, setItem] = useState(0);
     let aux = list;
+    let suma = 0;
+    let items = 0;
 
     const addList = (id, name, img, quantity, price) => {
         let isInCart = false;
@@ -21,10 +23,10 @@ const CartContextProvider = (props) => {
             setList([...aux,
             {
                 id: id,
-                user: name,
-                webformatURL: img,
+                nombre: name,
+                img: img,
                 count: quantity,
-                previewWidth: price
+                precio: price
             }]);
 
     }
@@ -35,19 +37,19 @@ const CartContextProvider = (props) => {
     }
 
     const removeItem = (id) => {
-        aux.filter((a)=>a.id === id )
-        alert(`remover ${id}`);
+        
+        setList(aux.find((a)=>a.id !== id ))
+        console.log(list);
     }
 
     const totalCompra = () => {
-        let suma = 0;
-        let items = 0;
+       aux = list;
         aux.forEach((a) => {
             if (a.count > 1) {
-                suma = suma + (a.previewWidth * a.count);
+                suma = suma + (a.precio * a.count);
                 items = items + a.count
             } else {
-                suma = suma + a.previewWidth;
+                suma = suma + a.precio;
                 items = items + a.count
             }
         })

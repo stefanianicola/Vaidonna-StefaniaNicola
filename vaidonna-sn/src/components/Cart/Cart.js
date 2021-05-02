@@ -27,14 +27,14 @@ export default function Cart() {
                                         <Card className="card" >
                                             <Row>
                                                 <Col xs={3}>
-                                                    <Card.Img src={l.webformatURL} />
+                                                    <Card.Img src={l.img} />
                                                 </Col>
                                                 <Col xs={8}>
                                                     <Card.Body>
-                                                        <Card.Title>{l.user}</Card.Title>
+                                                        <Card.Title>{l.nombre}</Card.Title>
                                                         <Card.Text>Cantidad: {l.count}</Card.Text>
                                                         <Card.Text className="price">
-                                                            <NumberFormat value={l.previewWidth * l.count.toFixed(2)}
+                                                            <NumberFormat value={l.precio * l.count.toFixed(2)}
                                                                 displayType={'text'}
                                                                 thousandSeparator={true}
                                                                 prefix={'$'} />
