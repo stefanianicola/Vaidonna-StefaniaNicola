@@ -1,19 +1,10 @@
 .carro {
-    margin-top: 150px;
+    margin-top: 150px;   
     .listItem {
-        display: flex;
-        .wrap-item {
-            border-top: 1px solid #000;
-            border-bottom: 1px solid #000;
-            width: 100%;
-            .item {
-                margin: 30px 10px;
-                width: 100%;
-                img {
-                    width: auto;
-                    height: 200px;
-                }
-            }
+        width: 100%;
+        .card-img{
+            width: auto;
+            height: 100px;
         }
     }
 }

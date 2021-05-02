@@ -1,5 +1,5 @@
-.listItem  {
-    .card{
+.listItem {
+    .card {
         //width: 200px;
         height: auto;
         margin: 10px;
@@ -27,11 +27,13 @@
                 }
             }
         }
-        &:hover {
-            transform: scale(1.1);
+        &.card-item {
+            &:hover {
+                transform: scale(1.1);
+            }
         }
     }
-    &:hover{
+    &:hover {
         text-decoration: none;
         color: #000;
     }

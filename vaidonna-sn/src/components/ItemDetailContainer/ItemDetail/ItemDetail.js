@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import ItemCount from '../../ItemCount/ItemCount';
 import { CartContext } from '../../../context/CartContext';
+import NumberFormat from 'react-number-format';
 
 const ItemDetail = ({ data }) => {
     const { addList, totalCompra } = useContext(CartContext);
@@ -12,10 +13,10 @@ const ItemDetail = ({ data }) => {
 
     const onAdd = (count) => {
         setCart(true);
-        addList(data.id,data.user,data.webformatURL, count, data.previewWidth);
+        addList(data.id, data.user, data.webformatURL, count, data.previewWidth);
     }
 
-    const handleBack = ()=>{
+    const handleBack = () => {
         setCart(false);
     }
 
@@ -36,16 +37,20 @@ const ItemDetail = ({ data }) => {
                                 {data.tags}
                             </Card.Text>
                             <Card.Text>
-                                ARS {data.previewWidth}
+                                <NumberFormat value={data.previewWidth}
+                                    displayType={'text'}
+                                    thousandSeparator={true}
+                                    prefix={'$'} />
+
                             </Card.Text>
                         </Card.Body>
                         {
                             cart ? <div>
-                                        <Link to="/cart" className="btn btn-success" onClick={totalCompra}>
-                                            Terminar Compra
+                                <Link to="/cart" className="btn btn-success" onClick={totalCompra}>
+                                    Terminar Compra
                                         </Link>
-                                        <Button variant="link" onClick={handleBack}>Cancelar</Button>
-                                    </div>
+                                <Button variant="link" onClick={handleBack}>Cancelar</Button>
+                            </div>
 
 
 

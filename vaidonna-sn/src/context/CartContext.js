@@ -4,11 +4,11 @@ export const CartContext = createContext();
 const CartContextProvider = (props) => {
     const [list, setList] = useState([]);
     const [total, setTotal] = useState(0);
-    
+    const [item, setItem] = useState(0);
+    let aux = list;
 
     const addList = (id, name, img, quantity, price) => {
         let isInCart = false;
-        let aux = list;
 
         aux.forEach((a) => {
             if (a.id === id) {
@@ -18,31 +18,43 @@ const CartContextProvider = (props) => {
             }
         })
         !isInCart &&
-        setList([...aux, { id: id, user: name, webformatURL: img, count: quantity, previewWidth: price }]);
+            setList([...aux,
+            {
+                id: id,
+                user: name,
+                webformatURL: img,
+                count: quantity,
+                previewWidth: price
+            }]);
 
     }
 
     const clear = () => {
         setList([]);
+        setItem(0);
     }
 
-    const totalCompra = ()=>{
-        let aux = list;
-        let  suma = 0;
-        aux.forEach((a)=>{
-            if(a.count > 1){
-             suma = suma + (a.previewWidth * a.count);
+    const removeItem = (id) => {
+        aux.filter((a)=>a.id === id )
+        alert(`remover ${id}`);
+    }
+
+    const totalCompra = () => {
+        let suma = 0;
+        let items = 0;
+        aux.forEach((a) => {
+            if (a.count > 1) {
+                suma = suma + (a.previewWidth * a.count);
+                items = items + a.count
             } else {
                 suma = suma + a.previewWidth;
+                items = items + a.count
             }
-           
-            
         })
         setTotal(suma);
-        
+        setItem(items)
     }
-    
-    console.log(total);
+
 
     return <CartContext.Provider
 
@@ -51,7 +63,9 @@ const CartContextProvider = (props) => {
             addList,
             clear,
             totalCompra,
-            total
+            total,
+            removeItem,
+            item
         }}>
         {props.children}
     </CartContext.Provider>

@@ -2,6 +2,7 @@ import React from 'react';
 import './Item.scss';
 import { Col, Card, Row, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import NumberFormat from 'react-number-format';
 //ROUTES
 import {Link, useParams} from 'react-router-dom';
 
@@ -18,7 +19,7 @@ const Item = ({ data }) => {
                 data.map((d) => (
                     <Col xs={12} md={4} lg={3} className="p-0" key={d.id}>
                         <Link to={`${name}/${d.id}`} className="listItem">
-                            <Card className="card">
+                            <Card className="card card-item">
                                 <div className="imgProduct" >
                                     <Card.Img variant="top" src={d.webformatURL} />
                                 </div>
@@ -29,7 +30,10 @@ const Item = ({ data }) => {
                                         {d.tags}
                                     </Card.Text>
                                     <Card.Text className="price">
-                                        ARS {d.previewWidth}
+                                    <NumberFormat value={d.previewWidth.toFixed(2)}
+                                                displayType={'text'}
+                                                thousandSeparator={true}
+                                                prefix={'$'} />
                                     </Card.Text>
                                 </Card.Body>
                                 <Button className="col-8 offset-2" variant="outline-secondary">Ver más</Button>
