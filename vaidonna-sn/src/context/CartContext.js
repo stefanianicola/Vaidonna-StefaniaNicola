@@ -5,11 +5,9 @@ const CartContextProvider = (props) => {
     const [list, setList] = useState([]);
     const [total, setTotal] = useState(0);
     const [item, setItem] = useState(0);
-    let aux = list;
-    let suma = 0;
-    let items = 0;
 
     const addList = (id, name, img, quantity, price) => {
+        let aux = list;
         let isInCart = false;
 
         aux.forEach((a) => {
@@ -37,12 +35,20 @@ const CartContextProvider = (props) => {
     }
 
     const removeItem = (id) => {
-        
-        setList(aux.find((a)=>a.id !== id ))
-        console.log(list);
+        let aux = list;
+        console.log(id);
+        if(aux.length > 0){
+            setList(aux.find((a)=>a.id !== id ))
+        } else {
+            setList([]);
+        }      
     }
 
     const totalCompra = () => {
+       let aux = list;
+       let items = 0;
+       let suma = 0;
+
        aux = list;
         aux.forEach((a) => {
             if (a.count > 1) {
@@ -53,7 +59,7 @@ const CartContextProvider = (props) => {
                 items = items + a.count
             }
         })
-        setTotal(suma);
+        setTotal(Number(suma));
         setItem(items)
     }
 

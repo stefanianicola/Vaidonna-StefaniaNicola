@@ -6,8 +6,8 @@ import NumberFormat from 'react-number-format';
 import { Link } from 'react-router-dom';
 
 
-export default function Cart() {
-    const { list, clear, total, removeItem } = useContext(CartContext);
+export default function Cart(props) {
+    const { list, clear, total, removeItem, item } = useContext(CartContext);
 
 
     return (
@@ -44,7 +44,7 @@ export default function Cart() {
                                                 <Col xs={1}>
                                                     <div>
                                                         <Button variant="danger"
-                                                            onClick={removeItem}>
+                                                            onClick={()=>{removeItem(l.id)}}>
                                                             <i className="fa fa-trash"
                                                                 aria-hidden="true"></i>
                                                         </Button>
