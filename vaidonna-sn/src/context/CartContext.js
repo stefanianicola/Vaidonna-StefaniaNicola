@@ -35,31 +35,52 @@ const CartContextProvider = (props) => {
     }
 
     const removeItem = (id) => {
-        let aux = list;
-        console.log(id);
-        if(aux.length > 0){
-            setList(aux.find((a)=>a.id !== id ))
-        } else {
-            setList([]);
-        }      
+        let dataAux = [...list];
+        let items = item;
+        let suma = total;
+        for (let i = 0; i < list.length; i++) {
+            if (id === list[i].id) {
+                dataAux.splice(i, 1);
+                items = items - list[i].count;
+                suma = suma - (list[i].precio * list[i].count);
+                setItem(items);
+                setTotal(Number(suma));
+            }
+        }
+
+        setList(dataAux);
+        // totalCompra();
+
     }
 
     const totalCompra = () => {
-       let aux = list;
-       let items = 0;
-       let suma = 0;
+        let aux = [...list];
+        let suma = 0;
 
-       aux = list;
         aux.forEach((a) => {
             if (a.count > 1) {
                 suma = suma + (a.precio * a.count);
-                items = items + a.count
+                
             } else {
                 suma = suma + a.precio;
+            }
+        })
+        
+        setTotal(Number(suma));
+        addItems();
+    }
+
+    const addItems = () => {
+        let aux = [...list];
+        let items = 0;
+
+        aux.forEach((a) => {
+            if (a.count > 1) {
+                items = items + a.count
+            } else {
                 items = items + a.count
             }
         })
-        setTotal(Number(suma));
         setItem(items)
     }
 

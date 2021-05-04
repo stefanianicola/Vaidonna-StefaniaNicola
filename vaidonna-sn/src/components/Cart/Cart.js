@@ -3,11 +3,12 @@ import { CartContext } from '../../context/CartContext';
 import { Row, Col, Card, Button, Alert } from 'react-bootstrap';
 import './Cart.scss';
 import NumberFormat from 'react-number-format';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
+ 
 
 
-export default function Cart(props) {
-    const { list, clear, total, removeItem, item } = useContext(CartContext);
+export default function Cart() {
+    const { list, clear, total, removeItem } = useContext(CartContext);
 
 
     return (
@@ -44,7 +45,7 @@ export default function Cart(props) {
                                                 <Col xs={1}>
                                                     <div>
                                                         <Button variant="danger"
-                                                            onClick={()=>{removeItem(l.id)}}>
+                                                            onClick={() => { removeItem(l.id) }}>
                                                             <i className="fa fa-trash"
                                                                 aria-hidden="true"></i>
                                                         </Button>
@@ -71,15 +72,15 @@ export default function Cart(props) {
                         <div>
                             <Alert variant="primary">
                                 No tienes elementos en el carrito!!
-                            </Alert>
+                             </Alert>
                             <Link to="/">
                                 <Button variant="link">Volver al inicio</Button>
                             </Link>
                         </div>
                     )
 
-                }
 
+                }
 
 
 
