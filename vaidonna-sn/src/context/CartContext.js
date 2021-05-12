@@ -42,7 +42,7 @@ const CartContextProvider = (props) => {
             if (id === list[i].id) {
                 dataAux.splice(i, 1);
                 items = items - list[i].count;
-                suma = suma - (list[i].precio * list[i].count);
+                suma = Number(suma - (list[i].precio * list[i].count));
                 setItem(items);
                 setTotal(Number(suma));
             }
@@ -59,10 +59,10 @@ const CartContextProvider = (props) => {
 
         aux.forEach((a) => {
             if (a.count > 1) {
-                suma = suma + (a.precio * a.count);
+                suma = Number(suma + (a.precio * a.count));
                 
             } else {
-                suma = suma + a.precio;
+                suma = Number(suma + a.precio);
             }
         })
         
@@ -83,6 +83,7 @@ const CartContextProvider = (props) => {
         })
         setItem(items)
     }
+
 
 
     return <CartContext.Provider

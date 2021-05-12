@@ -3,9 +3,7 @@ import { CartContext } from '../../context/CartContext';
 import { Row, Col, Card, Button, Alert } from 'react-bootstrap';
 import './Cart.scss';
 import NumberFormat from 'react-number-format';
-import {Link} from 'react-router-dom';
- 
-
+import { Link } from 'react-router-dom';
 
 export default function Cart() {
     const { list, clear, total, removeItem } = useContext(CartContext);
@@ -65,6 +63,10 @@ export default function Cart() {
                                     thousandSeparator={true}
                                     prefix={'$'} />
                                 <Button variant="danger" onClick={clear}>Cancelar compra</Button>
+                                <Link to="/compra">
+                                    <Button variant="success">Pagar</Button>
+                                </Link>
+
                             </Row>
                         </div>
 
