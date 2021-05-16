@@ -4,7 +4,6 @@ import { Modal } from 'react-bootstrap';
 import './ModalCompra.scss';
 import { db } from "../../../firebase";
 import { Link } from 'react-router-dom';
-import DetalleCompra from '../../DetalleCompra/DetalleCompra';
 
 const ModalCompra = () => {
     const { list, total } = useContext(CartContext);
@@ -13,12 +12,15 @@ const ModalCompra = () => {
         telefono: '',
         email: '',
         fecha: ''
+ 
     });
 
     const handleChange = (e) => {
         setDato({
             ...dato,
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
+            list,
+            total
         })
     }
 
@@ -98,7 +100,7 @@ const ModalCompra = () => {
                         </div>
                         <div className="mb-3">
                         
-                            {/* <div>
+                             <div>
                                 {
                                     list.map((l) => {
                                         return (
@@ -135,7 +137,7 @@ const ModalCompra = () => {
                                     value={total}
                                 onChange={handleChange}
                                 />
-                            </div> */}
+                            </div> 
                         </div>
                         <div className="wrap-btn">
                          

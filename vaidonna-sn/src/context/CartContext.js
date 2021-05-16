@@ -1,10 +1,10 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 export const CartContext = createContext();
 
 const CartContextProvider = (props) => {
     const [list, setList] = useState([]);
     const [total, setTotal] = useState(0);
-    const [item, setItem] = useState(0);
+    const [item, setItem] = useState(0);  
 
     const addList = (id, name, img, quantity, price) => {
         let aux = list;
@@ -84,7 +84,7 @@ const CartContextProvider = (props) => {
         setItem(items)
     }
 
-
+ 
 
     return <CartContext.Provider
 
