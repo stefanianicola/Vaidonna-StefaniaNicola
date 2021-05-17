@@ -4,7 +4,14 @@ export const CartContext = createContext();
 const CartContextProvider = (props) => {
     const [list, setList] = useState([]);
     const [total, setTotal] = useState(0);
-    const [item, setItem] = useState(0);  
+    const [item, setItem] = useState(0); 
+    const [date, setDate] = useState(); 
+
+    useEffect(()=> {
+        let today = new Date();
+        today =  today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear()
+        setDate(today);
+        }, [])
 
     const addList = (id, name, img, quantity, price) => {
         let aux = list;
@@ -59,10 +66,10 @@ const CartContextProvider = (props) => {
 
         aux.forEach((a) => {
             if (a.count > 1) {
-                suma = Number(suma + (a.precio * a.count));
+                suma = Number(suma) + (Number(a.precio) * Number(a.count));
                 
             } else {
-                suma = Number(suma + a.precio);
+                suma = Number(suma) + Number(a.precio);
             }
         })
         
@@ -84,6 +91,7 @@ const CartContextProvider = (props) => {
         setItem(items)
     }
 
+  
  
 
     return <CartContext.Provider
@@ -95,7 +103,8 @@ const CartContextProvider = (props) => {
             totalCompra,
             total,
             removeItem,
-            item
+            item,
+            date
         }}>
         {props.children}
     </CartContext.Provider>

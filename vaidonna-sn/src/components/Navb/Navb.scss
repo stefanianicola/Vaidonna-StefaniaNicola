@@ -3,12 +3,14 @@
     background-image: url(../../assets/img/bg.png);
     border-bottom: 1px solid #010101;
     background-position-y: center;
-    //min-height: 200px;
     position: fixed;
     top: 0;
     z-index: 100;
     width: 100%;
     background-color: #fff;
+    a:hover{
+        text-decoration: none;
+    }
     .navbar-brand {
         color: #000;
         margin-left: 50px;
@@ -19,7 +21,6 @@
             right: 60px;
         }
         &.show {
-            //background-color: #fdfefe;
             height: auto;
         }
         .navbar-nav {
@@ -30,7 +31,6 @@
             .nav-link {
                 color: #000;
                 .dropdown-menu {
-                    //border: none;
                     .dropdown-item {
                         text-align: center;
                     }

@@ -10,7 +10,6 @@ import Banner from './components/Banner/Banner';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import Cart from './components/Cart/Cart';
-import FormAddItem from './components/FormAddItem/FormAddItem';
 import  CartContextProvider  from './context/CartContext';
 import ModalCompra from './components/Cart/ModalCompra/ModalCompra';
 import DetalleCompra from './components/DetalleCompra/DetalleCompra';
@@ -34,7 +33,6 @@ function App() {
             <Route path="/:categoria/:id" exact component={ItemDetailContainer} />
             <Route path="/category/:categoria/:id" exact component={ItemDetailContainer} />
             <Route path="/cart" exact component={Cart} />
-            <Route path="/addItems" exact component={FormAddItem} />
             <Route path="/compra" exact component={ModalCompra} />
             <Route path="/detalle" exact component={DetalleCompra} />
           </Switch>
