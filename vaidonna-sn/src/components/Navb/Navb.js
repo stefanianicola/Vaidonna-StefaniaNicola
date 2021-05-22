@@ -15,11 +15,10 @@ function Navb() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Link to="/">Home</Link>
-            <NavDropdown title="Productos" id="basic-nav-dropdown">
+            <NavDropdown title="Categorias" id="basic-nav-dropdown">
               <Link className="drop-item" to="/category/dog">Perros</Link><br/>
               <Link className="drop-item" to="/category/cat">Gatos</Link><br/>
               <Link className="drop-item" to="/category/all">Otros</Link><br/>
-              <Link className="drop-item" to="/detalle">Detalle de Compra</Link>
             </NavDropdown>
             <CartWidget />
           </Nav>

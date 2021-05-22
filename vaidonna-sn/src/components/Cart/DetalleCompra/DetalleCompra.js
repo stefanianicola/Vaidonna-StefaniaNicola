@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Alert, Row, Col, Button } from 'react-bootstrap';
 import './DetalleCompra.scss';
-import { db } from '../../firebase';
+import { db } from '../../../firebase';
 
 
 const DetalleCompra = () => {

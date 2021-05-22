@@ -11,7 +11,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import Cart from './components/Cart/Cart';
 import  CartContextProvider  from './context/CartContext';
-import DetalleCompra from './components/DetalleCompra/DetalleCompra';
+import DetalleCompra from './components/Cart/DetalleCompra/DetalleCompra';
 import FormCompra from './components/Cart/FormCompra/FormCompra';
 
 function App() {

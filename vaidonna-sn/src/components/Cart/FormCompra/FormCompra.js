@@ -5,7 +5,7 @@ import { Container, Button, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { db } from "../../../firebase";
 import { Link } from 'react-router-dom';
-import DetalleCompra  from '../../DetalleCompra/DetalleCompra';
+import DetalleCompra  from '../DetalleCompra/DetalleCompra';
 
 const FormCompra = () => {
     const { list, total, date, item, setItem } = useContext(CartContext);
@@ -208,7 +208,7 @@ const FormCompra = () => {
                     </div>
                 )
                 : (
-                    <div>
+                    <div className="text-center">
                         <h3>Tu compra fue realizada correctamente!!</h3>
                         <DetalleCompra/>
                     </div>
