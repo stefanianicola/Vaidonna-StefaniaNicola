@@ -1,3 +1,22 @@
 .detalle{
-    margin-top: 200px;
+    margin-top: 150px;
+    min-height: 600px;
+    text-align: center;
+    .wrap-validator{
+        margin: 50px 0;
+        input {
+            width: 60%;
+        }
+        .btn {
+            padding: 5px;
+            margin-left: 20px;
+        }
+    }
+    .wrap-detalle-completo{
+        text-align: left;
+        .items {
+            padding-top: 20px;
+            padding-left: 50px;
+        }
+    }
 }

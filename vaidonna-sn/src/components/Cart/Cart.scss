@@ -1,10 +1,27 @@
 .carro {
-    margin-top: 150px;   
+    margin-top: 150px; 
+    min-height: 600px;  
     .listItem {
         width: 100%;
-        .card-img{
-            width: auto;
-            height: 100px;
+        .card-cart{
+            margin-top: 50px;
+            border-bottom: 1px solid;
+            margin-bottom: 50px;
+            text-align: center;
+            .cart-img {
+                width: 150px;
+                height: 150px;
+                margin: 0 auto;
+            }
+            .cart-desc{
+                margin-top: 40px;
+                input {
+                    width: 50px;
+                }
+                .price {
+                    font-weight: 700;
+                }
+            }
         }
     }
 }

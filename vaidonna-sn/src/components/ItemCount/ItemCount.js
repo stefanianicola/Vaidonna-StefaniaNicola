@@ -37,8 +37,8 @@ const ItemCount = ({onAdd}) => {
                 </Button>
             </Row>
             {
-                count <= 0 ? <Button disabled variant="outline-secondary" onClick={onAdd}>Agregar al Carrito</Button>
-                        : <Button variant="outline-secondary" onClick={handlerOnAdd}>Agregar al Carrito</Button>
+                count <= 0 ? <Button disabled variant="outline-primary" onClick={onAdd}>Agregar al Carrito</Button>
+                        : <Button variant="outline-primary" onClick={handlerOnAdd}>Agregar al Carrito</Button>
             }
             
         </div>

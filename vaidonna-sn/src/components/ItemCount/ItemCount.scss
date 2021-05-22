@@ -1,10 +1,12 @@
 .Count-container {
-    //margin: 20px;
-    //border-top: 1px solid #e7e7e7;
-    //border-radius: 10%;
-    //width: 200px;
-    height: 100px;
+    position: absolute;
+    bottom: 30px;
+    height: 120px;
     text-align: center;
+    background-color: white;
+    padding: 20px;
+    // border: 1px solid #BEBEBE;
+    border-radius: 10px;
     .inc-container {
         padding: 15px 0;
         .btn {

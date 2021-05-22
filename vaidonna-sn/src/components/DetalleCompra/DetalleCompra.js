@@ -1,4 +1,5 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
+import { Container, Alert, Row, Col, Button } from 'react-bootstrap';
 import './DetalleCompra.scss';
 import { db } from '../../firebase';
 
@@ -23,23 +24,30 @@ const DetalleCompra = () => {
                 setFlagMail(true);
                 setCompras(d);
                 setItems(d.list);
-            } 
+            }
 
         })
     }
 
 
     return (
-        <div className="detalle">
-
-            <input type="email"
-                placeholder="ingrse el mail con el que hizo la compra"
-                onChange={handleChange}></input>
-            <button onClick={() => { validateEmail(email) }}>Enviar</button>
+        <Container className="detalle">
+            <h3>Detalle de compra</h3>
+            <Row className="wrap-validator">
+                <Col xs={12}>
+                <label>Ingresa tu correo electronico para validar la compra:</label>
+                </Col>
+                <Col xs={12}>
+                <input type="email"
+                    placeholder="Ingrese el mail con el que hizo la compra."
+                    onChange={handleChange}></input>
+                <Button variant="primary" onClick={() => { validateEmail(email) }}>Enviar</Button>
+                </Col>
+            </Row>
 
             {
                 flagMail ? (
-                    <div>
+                    <div className="wrap-detalle-completo">
                         <p>Numero de compra:{compras.id}</p>
                         <p>Nombre {compras.nombre}</p>
                         <p>Correo {compras.email}</p>
@@ -48,7 +56,7 @@ const DetalleCompra = () => {
                              {
                                 items.map((l) => {
                                     return (
-                                        <div key={l.id}>
+                                        <div key={l.id} className="items">
                                             <p>Producto: {l.nombre}</p>
                                             <p>Cantidad: {l.count}</p>
                                             <p>Precio: {l.precio * l.count}</p>
@@ -56,18 +64,20 @@ const DetalleCompra = () => {
                                     )
                                 })
                             }
-                            <p>TOTAL COMPRA: {compras.total}</p>
+                            <p className="items">TOTAL COMPRA: {compras.total}</p>
                         </div>
                     </div>
 
                 )
                     : (
                         <div>
-                            NO HAY NADA
+                            <Alert variant="primary">
+                                No existe compra relacionada con ese correo electrónico.
+                            </Alert>
                         </div>
                     )
             }
-        </div>
+        </Container>
     )
 }
 export default DetalleCompra;

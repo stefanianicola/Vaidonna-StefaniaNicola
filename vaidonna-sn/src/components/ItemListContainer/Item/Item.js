@@ -1,6 +1,6 @@
 import React from 'react';
 import './Item.scss';
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button, Image } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NumberFormat from 'react-number-format';
 //ROUTES
@@ -8,16 +8,13 @@ import { Link } from 'react-router-dom';
 
 const Item = ({ data }) => {
 
-  
 
     return (
-
-        <Link to={`/${data.categoria}/${data.id}`} className="listItem">
+        <div className="listItem">
             <Card className="card card-item">
                 <div className="imgProduct" >
-                    <Card.Img variant="top" src={data.img} />
+                    <Image variant="top" src={data.img} fluid />
                 </div>
-
                 <Card.Body>
                     <Card.Title>{data.nombre}</Card.Title>
                     <Card.Text className="descriptProduct">
@@ -30,10 +27,11 @@ const Item = ({ data }) => {
                             prefix={'$'} />
                     </Card.Text>
                 </Card.Body>
-                <Button className="col-8 offset-2" variant="outline-secondary">Ver más</Button>
+                <Link to={`/${data.categoria}/${data.id}`}>
+                    <Button className="col-8 offset-2" variant="outline-secondary">Ver más</Button>
+                </Link>
             </Card>
-        </Link>
-
+        </div>
     )
 }
 

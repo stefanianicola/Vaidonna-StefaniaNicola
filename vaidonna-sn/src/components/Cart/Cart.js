@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
-import { Row, Col, Card, Button, Alert } from 'react-bootstrap';
+import { Row, Col, Image, Button, Alert } from 'react-bootstrap';
 import './Cart.scss';
 import NumberFormat from 'react-number-format';
 import { Link } from 'react-router-dom';
 
 export default function Cart() {
     const { list, clear, total, removeItem } = useContext(CartContext);
+
 
 
     return (
@@ -17,56 +18,66 @@ export default function Cart() {
                     list.length > 0 ? (
                         <div>
                             <h4>Compra Pendiente de confirmación</h4>
-
+                            <hr />
                             {
                                 list.map((l) => (
-                                    // <Row className="m-0 p-0 wrap-item">
                                     <Col xs={12} className="p-0" key={l.id}>
 
-                                        <Card className="card" >
-                                            <Row>
+                                        <div className="card-cart" >
+                                            <Row className="m-0 p-0">
                                                 <Col xs={3}>
-                                                    <Card.Img src={l.img} />
-                                                </Col>
-                                                <Col xs={8}>
-                                                    <Card.Body>
-                                                        <Card.Title>{l.nombre}</Card.Title>
-                                                        <Card.Text>Cantidad: {l.count}</Card.Text>
-                                                        <Card.Text className="price">
-                                                            <NumberFormat value={l.precio * l.count.toFixed(2)}
-                                                                displayType={'text'}
-                                                                thousandSeparator={true}
-                                                                prefix={'$'} />
-                                                        </Card.Text>
-                                                    </Card.Body>
-                                                </Col>
-                                                <Col xs={1}>
-                                                    <div>
-                                                        <Button variant="danger"
-                                                            onClick={() => { removeItem(l.id) }}>
-                                                            <i className="fa fa-trash"
-                                                                aria-hidden="true"></i>
-                                                        </Button>
+                                                    <div className="cart-img">
+                                                        <Image src={l.img} fluid />
                                                     </div>
                                                 </Col>
+                                                <Col xs={8}>
+                                                    <div>
+                                                        <h3>{l.nombre}</h3>
+                                                        <Row className="cart-desc m-0 p-0">
+                                                            <Col xs={5}>
+                                                                <p>Cantidad: {l.count}</p>
+                                                            </Col>
+                                                            <Col xs={6}>
+                                                                <div className="price">
+                                                                    <NumberFormat value={l.precio * l.count.toFixed(2)}
+                                                                        displayType={'text'}
+                                                                        thousandSeparator={true}
+                                                                        prefix={'$'} />
+                                                                </div>
+                                                            </Col>
+                                                            <Col xs={1}>
+                                                                <div>
+                                                                    <Button variant="danger"
+                                                                        onClick={() => { removeItem(l.id) }}>
+                                                                        <i className="fa fa-trash"
+                                                                            aria-hidden="true"></i>
+                                                                    </Button>
+                                                                </div>
+                                                            </Col>
+                                                        </Row>
+                                                    </div>
+                                                </Col>
+
                                             </Row>
 
-                                        </Card>
+                                        </div>
                                     </Col>
-                                    // </Row>
                                 ))}
                             <Row className="m-0 p-0">
-
-                                <p>Total de tu compra:</p>
-                                <NumberFormat value={total.toFixed(2)}
-                                    displayType={'text'}
-                                    thousandSeparator={true}
-                                    prefix={'$'} />
-                                <Button variant="danger" onClick={clear}>Cancelar compra</Button>
-                                <Link to="/compra">
-                                    <Button variant="success">Pagar</Button>
-                                </Link>
-
+                                <Col xs={6}>
+                                    <p>Total de tu compra: 
+                                    <NumberFormat value={total.toFixed(2)}
+                                        displayType={'text'}
+                                        thousandSeparator={true}
+                                        prefix={'$'} />
+                                        </p>
+                                </Col>
+                                <Col xs={6}>
+                                    <Button variant="link" onClick={clear}>Cancelar compra</Button>
+                                    <Link to="/compra">
+                                        <Button variant="success">Terminar compra</Button>
+                                    </Link>
+                                </Col>
                             </Row>
                         </div>
 

@@ -23,7 +23,7 @@ function ItemList(props) {
                     {
                         items &&
                         items.map((d, index) => (
-                            <Col xs={12} md={4} lg={3} className="p-0" key={d.id}>
+                            <Col xs={12} md={4} className="p-0" key={d.id}>
                                 <Item data={d} key={index} />
                             </Col>
                         ))

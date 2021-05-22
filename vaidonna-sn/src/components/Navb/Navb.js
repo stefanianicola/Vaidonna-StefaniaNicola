@@ -9,8 +9,6 @@ import CartWidget from '../CartWidget/CartWidget'
 
 function Navb() {
   return (
-
-
       <Navbar expand="lg">
         <Logo name="Vaidonna" url="/logo192.png" />
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -18,17 +16,15 @@ function Navb() {
           <Nav className="mr-auto">
             <Link to="/">Home</Link>
             <NavDropdown title="Productos" id="basic-nav-dropdown">
-              <Link to="/category/dog">Perros</Link>
-              <Link to="/category/cat">Gatos</Link>
-              <Link to="/category/all">Otros</Link>
-              <Link to="/detalle">Detalle de Compra</Link>
+              <Link className="drop-item" to="/category/dog">Perros</Link><br/>
+              <Link className="drop-item" to="/category/cat">Gatos</Link><br/>
+              <Link className="drop-item" to="/category/all">Otros</Link><br/>
+              <Link className="drop-item" to="/detalle">Detalle de Compra</Link>
             </NavDropdown>
             <CartWidget />
           </Nav>
         </Navbar.Collapse>
       </Navbar>
- 
-
   );
 }
 

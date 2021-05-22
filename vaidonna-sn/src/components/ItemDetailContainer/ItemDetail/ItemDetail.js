@@ -1,6 +1,6 @@
 import { React, useState, useContext } from 'react';
 import './ItemDetail.scss';
-import { Card, Col, Row, Button } from 'react-bootstrap';
+import { Col, Row, Button, Image } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import ItemCount from '../../ItemCount/ItemCount';
@@ -22,33 +22,35 @@ const ItemDetail = ({ data }) => {
 
     return (
         <div className="detailProduct">
-            <Card className="itemDetail">
+            <div className="itemDetail">
                 <h4 className="text-center">{data.nombre}</h4>
-                <Row>
-                    <Col md={{ span: 3, offset: 1 }}>
-                        <Card.Img
+                <hr/>
+                <Row className="rowDetail">
+                    <Col md={{ span: 6, offset: 1 }}>
+                        <Image
                             variant="top"
                             src={data.img}
+                            fluid
                         />
                     </Col>
-                    <Col md={{ span: 4, offset: 2 }}>
-                        <Card.Body>
-                            <Card.Text>
+                    <Col md={{ span: 4, offset: 1 }}>
+                        <div>
+                            <div className="descriptionDetail">
                                 {data.descripcion}
-                            </Card.Text>
-                            <Card.Text>
+                            </div>
+                            <div className="priceDetail">
                                 <NumberFormat value={data.precio}
                                     displayType={'text'}
                                     thousandSeparator={true}
                                     prefix={'$'} />
 
-                            </Card.Text>
-                        </Card.Body>
+                            </div>
+                        </div>
                         {
-                            cart ? <div>
+                            cart ? <div className="irCarro">
                                 <Link to="/cart" className="btn btn-success" onClick={totalCompra}>
-                                    Terminar Compra
-                                        </Link>
+                                    Ir al carrito
+                                </Link>
                                 <Button variant="link" onClick={handleBack}>Cancelar</Button>
                             </div>
 
@@ -59,7 +61,7 @@ const ItemDetail = ({ data }) => {
 
                     </Col>
                 </Row>
-            </Card>
+            </div>
 
         </div>
     )
