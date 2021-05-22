@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
-import { Row, Col, Image, Button, Alert } from 'react-bootstrap';
+import { Container, Row, Col, Image, Button, Alert } from 'react-bootstrap';
 import './Cart.scss';
 import NumberFormat from 'react-number-format';
 import { Link } from 'react-router-dom';
@@ -11,7 +11,7 @@ export default function Cart() {
 
 
     return (
-        <div className="carro ">
+        <Container className="carro ">
 
             <div className="listItem ">
                 {
@@ -99,6 +99,6 @@ export default function Cart() {
 
             </div>
 
-        </div >
+        </Container>
     )
 }

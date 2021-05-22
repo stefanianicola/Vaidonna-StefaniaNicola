@@ -5,7 +5,8 @@ const CartContextProvider = (props) => {
     const [list, setList] = useState([]);
     const [total, setTotal] = useState(0);
     const [item, setItem] = useState(0); 
-    const [date, setDate] = useState(); 
+    const [date, setDate] = useState();
+    const [loading, setLoading] = useState(false); 
 
     useEffect(()=> {
         let today = new Date();
@@ -104,7 +105,10 @@ const CartContextProvider = (props) => {
             total,
             removeItem,
             item,
-            date
+            setItem,
+            date,
+            loading,
+            setLoading
         }}>
         {props.children}
     </CartContext.Provider>

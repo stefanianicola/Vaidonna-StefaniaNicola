@@ -1,3 +1,5 @@
+//Este componente solo fue usado para cargar mis productos en la bd
+
 import React, { useState } from "react";
 import { db } from "../../firebase";
 import './FormAddItem.scss';
@@ -12,6 +14,7 @@ const Form = () => {
         descripcion: ''
     })
 
+    //tomo valor del input para cargar items en mi coleccion
     const handleChange = (e) => {
         setItems({
             ...item,
@@ -19,6 +22,7 @@ const Form = () => {
         })
     }
 
+    //envio item a a bd
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {

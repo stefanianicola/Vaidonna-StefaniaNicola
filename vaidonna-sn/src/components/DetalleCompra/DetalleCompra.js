@@ -9,24 +9,27 @@ const DetalleCompra = () => {
     const [email, setEmail] = useState();
     const [compras, setCompras] = useState([]);
     const [items, setItems] = useState([]);
-    const [flagMail, setFlagMail] = useState(false)
+    const [flagMail, setFlagMail] = useState(true)
 
+    //tomo valor del input para validar mail
     const handleChange = (e) => {
         let mail = e.target.value;
         setEmail(mail);
     }
 
+    //valido el mail con la base de datos
     const validateEmail = async (email) => {
         const { docs } = await db.collection("compra").get();
-        const data = docs.map((item) => ({ id: item.id, ...item.data() }));
-        data.forEach((d) => {
-            if (d.email === email) {
-                setFlagMail(true);
-                setCompras(d);
-                setItems(d.list);
-            }
+        let data = docs.map((item) => ({ id: item.id, ...item.data() }));
 
-        })
+       data = data.find((d)=> d.email === email)
+       if(data){
+        setFlagMail(true);
+            setCompras(data);
+            setItems(data.list);
+       } else {
+        setFlagMail(false);
+       }
     }
 
 
@@ -48,10 +51,11 @@ const DetalleCompra = () => {
             {
                 flagMail ? (
                     <div className="wrap-detalle-completo">
-                        <p>Numero de compra:{compras.id}</p>
-                        <p>Nombre {compras.nombre}</p>
-                        <p>Correo {compras.email}</p>
-                        <p>Telefono {compras.telefono}</p>
+                        <p>Numero de compra: {compras.id}</p>
+                        <p>Nombre: {compras.nombre}</p>
+                        <p>Correo: {compras.email}</p>
+                        <p>Telefono: {compras.telefono}</p>
+                        <p>Fecha: {compras.fecha}</p>
                         <div> Detalle de Compra:
                              {
                                 items.map((l) => {

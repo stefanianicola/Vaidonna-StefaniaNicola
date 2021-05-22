@@ -1,8 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import {CartContext} from '../../context/CartContext';
+import Loading from '../Loading/Loading';
 import { db } from '../../firebase';
 import ItemDetail from './ItemDetail/ItemDetail';
 
 function ItemDetailContainer({ match }) {
+  const { loading, setLoading } = useContext(CartContext);
     const [dataDet, setDataDet] = useState({});
 
     useEffect(() => {
@@ -11,6 +14,7 @@ function ItemDetailContainer({ match }) {
           const data = docs.map((item) => ({ id: item.id, ...item.data() }));
           data.forEach(element => {
             if(element.id === match.params.id && element.categoria === match.params.categoria){
+              setLoading(true);
               setDataDet(element);
             }
           });
@@ -18,12 +22,17 @@ function ItemDetailContainer({ match }) {
           
       }  
       getData();
+      setLoading(false);
     }, [match.params.id , match.params.categoria]);
 
 
     return (
         <div>
-            <ItemDetail  data={dataDet}/> 
+          {
+            loading ? (<ItemDetail  data={dataDet}/> )
+                    : (<Loading/>)
+          }
+            
         </div>
     )
 }

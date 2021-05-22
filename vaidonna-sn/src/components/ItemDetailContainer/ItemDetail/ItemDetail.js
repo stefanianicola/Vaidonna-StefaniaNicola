@@ -11,6 +11,7 @@ const ItemDetail = ({ data }) => {
     const { addList, totalCompra } = useContext(CartContext);
     const [cart, setCart] = useState(false);
 
+    //agrega item al carro
     const onAdd = (count) => {
         setCart(true);
         addList(data.id, data.nombre, data.img, count, data.precio);
