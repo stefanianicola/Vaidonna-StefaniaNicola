@@ -23,6 +23,7 @@ function ItemDetailContainer({ match }) {
       }  
       getData();
       setLoading(false);
+       // eslint-disable-next-line
     }, [match.params.id , match.params.categoria]);
 
 

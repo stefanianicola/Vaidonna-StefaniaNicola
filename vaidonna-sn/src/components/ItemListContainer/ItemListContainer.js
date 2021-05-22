@@ -25,6 +25,7 @@ function ItemListContainer(props) {
             }
         }
         getData();
+        // eslint-disable-next-line
     }, [categoria]);
     
 

@@ -1,15 +1,14 @@
 import firebase from 'firebase/app';
 // import firebase from 'firebase';
 import 'firebase/firestore';
- 
  // Your web app's Firebase configuration
  const firebaseConfig = {
-    apiKey: "AIzaSyCQIwLRDTsLZ_k0vSRY5b_E8XUw3hE5znY",
-    authDomain: "vaidonna.firebaseapp.com",
-    projectId: "vaidonna",
-    storageBucket: "vaidonna.appspot.com",
-    messagingSenderId: "576508521025",
-    appId: "1:576508521025:web:68898a8289c0b1081f74c0"
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID
   };
 
 // Initialize Firebase

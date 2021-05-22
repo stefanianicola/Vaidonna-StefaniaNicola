@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import DetalleCompra  from '../DetalleCompra/DetalleCompra';
 
 const FormCompra = () => {
-    const { list, total, date, item, setItem } = useContext(CartContext);
+    const { list,setList, total, date, item, setItem } = useContext(CartContext);
     const [detalle, setDetalle] = useState(false);
     const [dato, setDato] = useState({
         nombre: '',
@@ -33,6 +33,7 @@ const FormCompra = () => {
             await db.collection("compra").add(dato)
             setDetalle(true);
             setItem(0);
+            setList([]);
         } catch (error) {
             console.log(error)
         }

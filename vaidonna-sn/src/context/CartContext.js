@@ -99,6 +99,7 @@ const CartContextProvider = (props) => {
 
         value={{
             list,
+            setList,
             addList,
             clear,
             totalCompra,
